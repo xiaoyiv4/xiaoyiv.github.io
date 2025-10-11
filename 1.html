@@ -1,0 +1,107 @@
+<!-- ...existing code... -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>轻量博客</title>
+  <meta name="description" content="极简纯前端轻量博客示例（HTML/CSS/JS），支持搜索、标签、编辑与本地存储" />
+  <link rel="stylesheet" href="2.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="header-left">
+      <h1 class="site-title">轻量博客</h1>
+      <div class="site-sub">极简设置</div>
+    </div>
+    <div class="header-actions">
+      <input id="search" type="search" placeholder="搜索文章或内容..." />
+      <button id="newPostBtn">新建文章</button>
+    </div>
+  </header>
+
+  <main class="container layout">
+    <aside class="sidebar">
+      <section class="widget">
+        <h4>统计</h4>
+        <div>文章数：<span id="postCount">0</span></div>
+        <div>最近更新：<span id="lastUpdated">—</span></div>
+      </section>
+
+      <section class="widget">
+        <h4>标签</h4>
+        <div id="tagsList" class="tags"></div>
+      </section>
+
+      <section class="widget">
+        <h4>近期文章</h4>
+        <div id="recentList" class="recent"></div>
+      </section>
+
+      <section class="widget small">
+        <h4>说明</h4>
+        <div class="muted">欢迎大家留言交流。</div>
+      </section>
+    </aside>
+
+<!-- ...existing code... -->
+    <section class="main-col">
+      <div class="featured" id="featured" aria-hidden="true"></div>
+
+      <section id="postsList" class="posts-list"></section>
+      <div id="pagination" class="pagination" aria-label="分页"></div>
+      <p id="emptyHint" class="hint">暂无文章，点击“新建文章”开始写作。</p>
+    </section>
+<!-- ...existing code... -->
+  </main>
+
+  <!-- 新建/编辑 弹窗 -->
+  <div id="editorModal" class="modal hidden" aria-hidden="true">
+    <div class="modal-panel">
+      <header class="modal-header">
+        <h2 id="editorTitle">新建文章</h2>
+        <button id="closeEditor" class="btn-close">×</button>
+      </header>
+      <form id="postForm" class="editor-form">
+        <input id="postTitle" type="text" placeholder="标题" required />
+        <input id="postTags" type="text" placeholder="标签（用逗号分隔，例如：笔记,前端）" />
+        <textarea id="postContent" rows="12" placeholder="正文（支持简单换行与 **加粗**）" required></textarea>
+        <div class="form-actions">
+          <button type="submit" class="btn primary">保存</button>
+          <button type="button" id="cancelEditor" class="btn">取消</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 查看文章 弹窗 -->
+  <div id="viewModal" class="modal hidden" aria-hidden="true">
+    <div class="modal-panel">
+      <header class="modal-header">
+        <h2 id="viewTitle"></h2>
+        <button id="closeView" class="btn-close">×</button>
+      </header>
+      <div id="viewMeta" class="meta"></div>
+      <article id="viewContent" class="view-content"></article>
+      <footer class="form-actions">
+        <div class="left">
+          <div id="viewTags" class="tags"></div>
+        </div>
+        <div class="right">
+          <button id="deleteBtn" class="btn danger">删除</button>
+          <button id="editBtn" class="btn">编辑</button>
+          <button id="closeView2" class="btn">关闭</button>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+
+  <footer class="footer">
+    <div>rzh</div>
+  </footer>
+
+  <script src="3.js"></script>
+</body>
+</html>

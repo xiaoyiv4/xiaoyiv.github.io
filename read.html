@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>文章阅读 - 轻量博客</title>
+  <link rel="stylesheet" href="2.css" />
+  <style>
+    /* 只读页局部样式，轻微覆盖 */
+    .read-container{ max-width:900px;margin:36px auto;padding:20px;background:rgba(255,255,255,0.88);border-radius:10px;backdrop-filter:blur(4px); }
+    .read-title{ margin:0 0 8px;font-size:22px; }
+    .read-meta{ color:var(--muted); font-size:13px; margin-bottom:14px; }
+    .read-tags{ margin-bottom:10px; }
+    .read-tags .tag{ margin-right:6px; cursor:pointer; }
+    .read-actions{ margin-top:18px; display:flex; gap:8px; justify-content:flex-end; }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-left">
+      <h1 class="site-title">轻量博客</h1>
+      <div class="site-sub">阅读模式（只读）</div>
+    </div>
+    <div class="header-actions">
+      <a href="1.html"><button class="btn">返回</button></a>
+    </div>
+  </header>
+
+  <main class="read-container" id="readRoot">
+    <h2 id="rTitle" class="read-title">正在加载…</h2>
+    <div id="rMeta" class="read-meta"></div>
+    <div id="rTags" class="read-tags"></div>
+    <article id="rContent" class="view-content"></article>
+    <div class="read-actions">
+      <a href="1.html"><button class="btn">返回文章列表</button></a>
+    </div>
+  </main>
+
+  <script src="read.js"></script>
+</body>
+</html>
